@@ -9,10 +9,11 @@ import os
 from app import app
 from app.ascii import birthday_2017, ss_title
 from app.ss import ss_free
+from app import donation
 from flask import render_template, send_from_directory, abort
 
-
-servers = list()
+PERIOD = int(os.environ.get('PERIOD', 300))
+servers = [{'data': [], 'info': {'message': '别着急，正在爬数据，十分钟后再回来吧：）', 'url': 'http://ss.pythonic.life', 'name':'免费 ShadowSocks 帐号分享'}}]
 curtime = time.ctime()
 
 # decoded = list()
@@ -59,20 +60,25 @@ def update_servers():
 # counter_path = os.path.expanduser('/tmp/counter')
 counter_path = 'memory'
 count = 0
+update_counter = 0
 
 
-def counter(counter_path=counter_path):
-    if counter_path == 'memory':
-        global count
-        count += 1
-    else:
-        if not os.path.exists(os.path.split(counter_path)[0]):
-            os.makedirs(os.path.split(counter_path)[0])
-        if not os.path.exists(counter_path):
-            open(counter_path, 'w').write('0')
-        count = int(open(counter_path).readline())
-        open(counter_path, 'w').write(str(count + 1))
-    if count % 150 == 2:
+def counter(counter_path=counter_path, update=True):
+    if update:
+        if counter_path == 'memory':
+            global count
+            count += 1
+        else:
+            if not os.path.exists(os.path.split(counter_path)[0]):
+                os.makedirs(os.path.split(counter_path)[0])
+            if not os.path.exists(counter_path):
+                open(counter_path, 'w').write('0')
+            count = int(open(counter_path).readline())
+            open(counter_path, 'w').write(str(count + 1))
+
+    global update_counter
+    update_counter += 1
+    if update_counter % PERIOD == 1:
         update_thread = threading.Thread(target=update_servers)
         update_thread.start()
     return count
@@ -193,23 +199,44 @@ def static_html(path):
         abort(404)
 
 
+@app.route('/donation')
+def html_donation():
+    try:
+        color, opacity, count = gen_canvas_nest()
+        return render_template(
+            'donate.html',
+            color=color,
+            opacity=opacity,
+            count=count,
+            data=donation.data,
+            sum_people=donation.sum_people,
+            sum_money=donation.sum_money)
+    except Exception as e:
+        logging.exception(e)
+        abort(404)
+
+
 @app.route('/subscribe')
 def subscribe():
+    counter('', False)
     return encoded
 
 
 @app.route('/full/subscribe')
 def full_subscribe():
+    counter('', False)
     return full_encoded
 
 
 @app.route('/json')
 def subscribe_json():
+    counter('', False)
     return '{}' if len(jsons) == 0 else random.sample(jsons, 1)[0]
 
 
 @app.route('/full/json')
 def full_subscribe_json():
+    counter('', False)
     return '{}' if len(jsons) == 0 else random.sample(full_jsons, 1)[0]
 
 
@@ -245,3 +272,4 @@ def gift():
 
 
 print('部署完成')
+
