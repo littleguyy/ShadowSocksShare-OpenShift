@@ -6,6 +6,7 @@ url = [
     # 'https://plus.google.com/communities/106442142549456855872/stream/62937124-015f-4f9c-81c9-914444653b8a',
     # 'https://plus.google.com/communities/104092405342699579599/stream/8a593591-2091-4096-bb00-7d9c5659db93',
     # 'https://plus.google.com/communities/104092405342699579599/posts/105945645464453975098',
+    'https://plus.google.com/communities/101703716617134561849',
     'https://plus.google.com/communities/104092405342699579599/stream/8a593591-2091-4096-bb00-7d9c5659db93',
     'https://plus.google.com/communities/109204483693184691558',
     'https://plus.google.com/communities/117702818760720009772/stream/47c69db4-9362-4d91-a017-97f3be948437',
