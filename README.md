@@ -76,13 +76,15 @@
 
 注册 OpenShift v3 之后，在创建项目中选择 Python，Python 版本选择 3.5, 之后部署的时候链接输入本项目的 https 类型的 git 链接即可。
 
-### 编写的软件版本：
+### 编写的软件版本：windows 7 system
 
 * Python 3.5
 * Flask 0.12.2  Python 3.X目录下输入指令`python.exe -m pip install Flask`
 * 其他，反正都安装最新版就行了 
   * Python 3.X目录下输入指令`python.exe -m pip install -U regex beautifulsoup4`
   * Python 3.X目录下输入指令`python.exe -m pip install requests`
+  * Python 3.X目录下输入指令`python.exe -m pip install zbar`
+
 
 ### TO DO
 
