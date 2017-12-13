@@ -80,7 +80,9 @@
 
 * Python 3.5
 * Flask 0.12.2  Python 3.X目录下输入指令`python.exe -m pip install Flask`
-* 其他，反正都安装最新版就行了 Python 3.X目录下输入指令`python.exe -m pip install -U regex beautifulsoup4`
+* 其他，反正都安装最新版就行了 
+  * Python 3.X目录下输入指令`python.exe -m pip install -U regex beautifulsoup4`
+  * Python 3.X目录下输入指令`python.exe -m pip install requests`
 
 ### TO DO
 
