@@ -79,8 +79,8 @@
 ### 编写的软件版本：
 
 * Python 3.5
-* Flask 0.12.2
-* 其他，反正都安装最新版就行了
+* Flask 0.12.2  Python 3.X目录下输入指令`python.exe -m pip install Flask`
+* 其他，反正都安装最新版就行了 Python 3.X目录下输入指令`python.exe -m pip install -U regex beautifulsoup4`
 
 ### TO DO
 
