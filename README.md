@@ -83,7 +83,7 @@
 * 其他，反正都安装最新版就行了 
   * Python 3.X目录下输入指令`python.exe -m pip install -U regex beautifulsoup4`
   * Python 3.X目录下输入指令`python.exe -m pip install requests`
-  * Python 3.X目录下输入指令`python.exe -m pip install zbar`
+  * Python 3.X目录下输入指令`python.exe -m pip install zbar` Windows7 没装成功
 
 
 ### TO DO
